@@ -1,0 +1,14 @@
+<header class="row">
+    <div class="container">
+      <% if user_signed_in? %>
+      <%= link_to "お笑い評価サイト", root_path, class: "logo" %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <p><%= link_to 'プロフィール', users_show_path %> |</p>
+        <p><%= link_to "ログアウト", sign_out_path %></p>
+      <% else %>
+        <%= link_to "お笑い評価サイト", root_path, class: "logo" %>
+        <p><%= link_to "サインイン", new_user_registration_path %> |</p>
+        <p><%= link_to "ログイン", new_user_registration_path %></p>
+      <% end %>
+    </div>
+</header>

@@ -1,0 +1,19 @@
+<% provide(:title, "Home") %>
+  <% render 'layouts/header' %>
+  <div class="container">
+    <div class="row">
+     <div class="col-sm-6">
+      <div class="text">
+       <p>お笑い芸人の漫才やコントが知りたい...<br>
+       面白かったネタをみんなに教えたい...<br>
+       そんなあなたにオススメのサイトです。</p>
+      </div>
+     </div>
+     <div class="col-sm-6">
+          <%= link_to "新規アカウント作成", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary" %>
+          <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path %>
+     </div>
+    </div>
+  </div>
+  <% render 'layouts/header' %>
