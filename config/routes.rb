@@ -11,10 +11,7 @@ Rails.application.routes.draw do
   end
   resources :users, :only => [:show]
   
-  get "posts/:id" => "posts#show"
-  get "posts/new" => "posts#new"
-  post "posts/create" => "posts#create"
-  post "posts/create" => "posts#create"
+  resources :posts
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
