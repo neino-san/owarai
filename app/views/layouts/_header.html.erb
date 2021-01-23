@@ -4,7 +4,7 @@
       <%= link_to "お笑い評価サイト", root_path, class: "logo" %>
         Logged in as <strong><%= current_user.email %></strong>
         <p><%= link_to '投稿', new_post_path %></p>
-        <p><%= link_to 'プロフィール', users_show_path %></p>
+        <p><%= link_to 'プロフィール', current_user %></p>
         <p><%= link_to "投稿一覧", posts_path %></p>
         <p><%= link_to "ログアウト", sign_out_path %></p>
       <% else %>

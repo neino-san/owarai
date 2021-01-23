@@ -10,13 +10,14 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.create(post_params)
-    
+    @post = current_user.posts.build(post_params)
+    @post.save
     redirect_to posts_path
   end
   
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
   end
   
   def edit
@@ -43,5 +44,9 @@ class PostsController < ApplicationController
   
   def set_target_post
     @post = Post.find(params[:id])
+  end
+  
+  def set_user
+    @user = User.find([:id])
   end
 end
