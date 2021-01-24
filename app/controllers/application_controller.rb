@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     user_path(resource.id)
   end
   
+  def set_current_user
+    @current_user = User.find_by(id: session[:user_id])
+  end
+  
   protected
   
   def configure_permitted_parameters
