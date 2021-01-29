@@ -4,12 +4,15 @@
         <a class="btn btn-outline-info" href="/posts/new" role="button">投稿</a>
     </div>
 </div>
+<% if flash[:notice] %>
+    <div class="alert alert-primary"><%= flash[:notice] %></div>
+<% end %>
 <table class="table table-bordered border-primary table-hover table-sm posts_table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col" style="width: 40px">No.</th>
-      <th scope="col" style="width: 700px">投稿タイトル</th>
-      <th scope="col">投稿者</th>
+      <th scope="col" style="width: 300px">投稿タイトル</th>
+      <th scope="col">ネタの種類</th>
+      <th scope="col" style="width: 10px","height: 10px">投稿者</th>
       <th scope="col">投稿日</th>
       <th scope="col">更新日時</th>
       <th></th>
@@ -19,9 +22,14 @@
   <tbody>
       <% @posts.each do |post| %>
         <tr>
-            <th><%= post.id %></th>
             <td><%= post.content %></td>
-            <td><%= post.name %></td>
+            <td><%= post.kind %></td>
+            <td class="post_icon"><%= post.user.name %></br>
+            <% if post.user.image? %>
+            <%= image_tag post.user.image.url %>
+            <% else %>
+            <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
+            <% end %></td>
             <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
             <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
             <td><%= link_to '詳細', post, id: "detail-" + post.id.to_s, class: 'btn btn-outline-info' %></td>
@@ -30,3 +38,4 @@
       <% end %>
   </tbody>
 </table>
+<%= paginate @posts %>

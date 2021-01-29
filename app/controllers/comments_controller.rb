@@ -1,27 +1,25 @@
 class CommentsController < ApplicationController
-    
   def create
-    @item = Item.find(params[:item_id])
-    #投稿に紐づいたコメントを作成
-    @comment = @post.comments.build(comment_params)
-    @comment.user_id = current_user.id
-    @comment.save
-    render :index
+    comment = Comment.new(comment_params)
+    if comment.save
+        flash[:notice] = 'コメントを投稿しました!'
+        redirect_to comment.post
+    else
+        redirect_back fallback_location: root_path, flash: {
+          error_messages: comment.errors.full_messages
+        }
+    end
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    render :index
+    comment = Comment.find(params[:id])
+    comment.delete
+    redirect_to comment.post, flash: { notice: 'コメントが削除されました' }
   end
-
+  
   private
 
-  def set_comment
-    @comment = Comment.find_by(id: params[:id])
-  end
-
   def comment_params
-    params.require(:comment).permit(:content, :item_id, :user_id)
+    params.require(:comment).permit(:post_id, :name, :comment)
   end
 end

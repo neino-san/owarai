@@ -2,7 +2,11 @@
 
 <h3>ユーザー名</h3>
 <div class="back-color"><%= @user.name %></div>
+<% if @user.image? %>
 <img src=<%= @user.image %> class = "icon_image">
+<% else %>
+<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
+<% end %>
 <h3>プロフィール</h3>
 <div class="back-color"><%= @user.profile %></div><br>
 <p><%= "id: #{@user.id}" %></p>

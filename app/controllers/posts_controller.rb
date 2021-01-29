@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_target_post, only: %i[show edit update destroy]
     
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page])
   end
   
   def new
@@ -11,20 +11,18 @@ class PostsController < ApplicationController
   
   def create
     @post = current_user.posts.build(post_params)
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      flash[:notice] = "投稿されました"
+      redirect_to posts_path
+    else
+      redirect_to new_post_path, flash: {error_messages: @post.errors.full_messages}
+    end
   end
   
   def show
-<<<<<<< HEAD
-    @post = Post.find(params[:id])
-    @user = User.find_by(id: @post.user_id)
-    @comment = Comment.new
-    @comments = @post.comments.order(created_at: :desc)
-=======
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
->>>>>>> フォロー機能追加
+    @comment = Comment.new(post_id: @post.id)
   end
   
   def edit
@@ -34,19 +32,21 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
+    flash[:notice] = "投稿を更新しました!"
     redirect_to posts_path
   end
   
   def destroy
     @post = Post.find(params[:id])
     @post.delete
+    flash[:notice] = "投稿を削除しました"
     redirect_to posts_path
   end
   
   private
   
   def post_params
-    params.require(:post).permit(:name, :title, :content)
+    params.require(:post).permit(:name, :title, :content, :image, :remove_image, :kind)
   end
   
   def set_target_post

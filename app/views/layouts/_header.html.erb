@@ -1,5 +1,5 @@
-<header class="row">
-    <div class="container">
+<header class="container">
+    <div class="row">
       <% if user_signed_in? %>
       <%= link_to "お笑い評価サイト", root_path, class: "logo" %>
         Logged in as <strong><%= current_user.email %></strong>

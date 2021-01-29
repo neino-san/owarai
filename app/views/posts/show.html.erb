@@ -1,29 +1,17 @@
 <h1>ユーザー名</h1>
-<<<<<<< HEAD
     <%= link_to(@user.name, user_path(@user))%>
 <div class="back-color"><%= @post.content %></div>
-    <div class="row">
-        <ul>
-            <li class="comment-create">
-                <h3 class="text-left title">レビュー</h3>
-            </li>
-            <li id="comments_area">
-                <%= render partial: 'comments/index', locals: { comments: @comments } %>
-            </li>
-        </ul>
-        <hr>
-        <% if user_signed_in? %>
-            <div class="comment-create">
-                <h3 class="text-left">レビューを投稿する</h3>
-                <%= render partial: 'comments/form', locals: { comment: @comment, item: @item } %>
-            </div>
-        <% end %>
-    </div>
-    
-=======
-<%= link_to(@user.name,"/users/#{@user.id}")%>
-<div class="back-color"><%= @post.content %></div>
->>>>>>> フォロー機能追加
-<% if current_user == @user %>
-<%= link_to '編集', edit_post_path(@post), class: "btn btn-outline-info" %>
+<% if @post.image? %>
+<%= image_tag @post.image.url %>
+<% else %>
+ <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
 <% end %>
+  <div class="p-comment_listTitle">コメント</div>
+  <%= render @post.comments %>
+    <%= render partial: 'comments/form', locals: { comment: @comment } %>
+<% if flash[:notice] %>
+    <div class="alert alert-primary"><%= flash[:notice] %></div>
+<% end %>
+    <% if current_user == @user %>
+    <%= link_to '編集', edit_post_path(@post), class: "btn btn-outline-info" %>
+    <% end %>

@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :posts 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
   validates :name, presence: true
+  validates :email, presence: true
   validates :profile, length: { maximum: 200 }
   mount_uploader :image, ImageUploader
   
@@ -18,12 +18,9 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   
-<<<<<<< HEAD
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   
-=======
->>>>>>> フォロー機能追加
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
@@ -34,5 +31,11 @@ class User < ApplicationRecord
  
   def following?(other_user)
     following.include?(other_user)
+  end
+  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', name: 'guest') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
   end
 end
