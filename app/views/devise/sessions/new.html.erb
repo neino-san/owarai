@@ -1,31 +1,34 @@
-<div class="container">
+<section class="index container">
   <div class="contents row">
-    <h2>ログイン</h2>
-  　<div class="form-group">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %><br/>
-          <%= f.email_field :email, autofocus: true, class: "form-control" %>
-        </div>
-  
-        <div class="field">
-          <%= f.label :password, "パスワード" %><br />
-          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-          <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path %>
-        </div>
-  
-        <% if devise_mapping.rememberable? -%>
+    <div class="col-md-8 sign_in" style="max-width:600px;">
+      <h2>ログイン</h2>
+    　<div class="form-group">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    
           <div class="field">
-            <%= f.label :remember_me, "ログイン情報を保存" %><br />
-            <%= f.check_box :remember_me %>
+            <%= f.label :email, "メールアドレス" %><br/>
+            <%= f.email_field :email, autofocus: true, class: "form-control" %>
           </div>
-        <% end -%>
-  
-        <div class="actions">
-          <%= f.submit "ログイン" %>
-        </div>
-      <% end %>
+    
+          <div class="field">
+            <%= f.label :password, "パスワード" %><br />
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+            <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path %>
+          </div>
+    
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.label :remember_me, "ログイン情報を保存" %><br />
+              <%= f.check_box :remember_me %>
+            </div>
+          <% end -%>
+    
+          <div class="actions">
+            <%= f.submit "ログイン" %>
+          </div>
+        <% end %>
+        <%= link_to "新規登録", new_user_registration_path, class: 'd-block' %>
+      </div>
     </div>
   </div>
-</div>
+</section>

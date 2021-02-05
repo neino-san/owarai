@@ -1,29 +1,68 @@
-<h1>プロフィール</h1>
-
-<h3>ユーザー名</h3>
-<div class="back-color"><%= @user.name %></div>
-<% if @user.image? %>
-<img src=<%= @user.image %> class = "icon_image">
-<% else %>
-<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
-<% end %>
-<h3>プロフィール</h3>
-<div class="back-color"><%= @user.profile %></div><br>
-<p><%= "id: #{@user.id}" %></p>
-<section class="stats">
-  <%= render 'devise/shared/stats' %>
-</section>
-<% unless @user == current_user %>
-  <div id="follow_form">
-    <% if current_user.following?(@user) %>
-      <%= render 'devise/shared/unfollow' %>
+<div class="user-show">
+  <div class="user-user">
+    <% if @user.image? %>
+      <img src=<%= @user.image %> class = "icon_image" width="180" hight="180">
     <% else %>
-      <%= render 'devise/shared/follow' %>
+      <img src="/assets/default.png" class="icon" >
+    <% end %>
+    <h1><%= @user.name %></h1>
+    <% if @user.profile? %>
+    　　<div class="back-color"><%= @user.profile %></div>
+    <% else %>
+    　　<div class="back-color">プロフィールはありません</div>
+    <% end %>
+    <section class="stats">
+      <%= render 'devise/shared/stats' %>
+    </section>
+    <% unless @user == current_user %>
+      <div id="follow_form">
+        <% if current_user.following?(@user) %>
+          <%= render 'devise/shared/unfollow' %>
+        <% else %>
+          <%= render 'devise/shared/follow' %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if current_user == @user %>
+    <h3>メールアドレス</h3>
+    <div class="back-color"><%= @user.email %></div>
+    <%= link_to "編集", edit_user_registration_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
-<% end %>
-<% if current_user == @user %>
-<h3>メールアドレス</h3>
-<div class="back-color"><%= @user.email %></div>
-<%= link_to "編集", edit_user_registration_path, class: "btn btn-lg btn-primary" %>
-<% end %>
+</div>
+<div class="d-flex align-items-center">
+    <h1>投稿一覧</h1>
+    <div class="ml-auto posts_button">
+        <a class="btn btn-info" href="/posts/new" role="button">投稿</a>
+    </div>
+</div>
+<table class="table table-bordered border-primary table-hover table-sm posts_table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" style="width: 300px">投稿タイトル</th>
+      <th scope="col">ネタの種類</th>
+      <th scope="col" style="width: 10px","height: 10px">投稿者</th>
+      <th scope="col">投稿日</th>
+      <th scope="col">更新日時</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+            <td><%= post.content %></td>
+            <td><%= post.kind %></td>
+            <td class="post_icon"><h4><%= post.user.name %></h4></br>
+            <% if post.user.image? %>
+              <img src=<%= post.user.image %>  width="80" hight="80" >
+            <% else %>
+              <img src="/assets/default.png"  width="80" hight="80" class="icon"
+            <% end %></td>
+            <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+            <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
+            <td><%= link_to '詳細', post, id: "detail-" + post.id.to_s, class: 'btn btn-info' %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+<%= paginate @posts %>

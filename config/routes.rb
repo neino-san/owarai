@@ -15,9 +15,9 @@ Rails.application.routes.draw do
     get 'show/:id/followers', to: 'users/registrations#followers', as: 'followers'
   end
   
-  resources :posts
-  
-  resources :comments, only: %i[create destroy]
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
   
   resources :users do
     collection do

@@ -10,25 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_010325) do
+ActiveRecord::Schema.define(version: 2021_02_02_032543) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "post_id", null: false
-    t.string "name", null: false
+    t.bigint "user_id", null: false
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
     t.index ["post_id"], name: "index_comments_on_post_id"
-  end
-
-  create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "name"
-    t.string "title"
-    t.string "kind"
-    t.text "content"
-    t.string "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -74,4 +66,5 @@ ActiveRecord::Schema.define(version: 2021_01_27_010325) do
   end
 
   add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
 end

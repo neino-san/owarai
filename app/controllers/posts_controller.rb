@@ -22,7 +22,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
-    @comment = Comment.new(post_id: @post.id)
+    @comment = Comment.new
+    @comments = @post.comments
   end
   
   def edit
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
   
   def destroy
     @post = Post.find(params[:id])
-    @post.delete
+    @post.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to posts_path
   end
@@ -46,7 +47,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:name, :title, :content, :image, :remove_image, :kind)
+    params.require(:post).permit(:name, :title, :content, :image, :remove_image, :kind, :id)
   end
   
   def set_target_post

@@ -20,3 +20,7 @@ require("channels")
     //= require turbolinks
     //= require jquery
     //= require_tree .
+    
+    //= require jquery3
+    //= require popper
+    //= require bootstrap-sprockets

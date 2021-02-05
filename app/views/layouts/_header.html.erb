@@ -1,16 +1,36 @@
-<header class="container">
-    <div class="row">
-      <% if user_signed_in? %>
-      <%= link_to "お笑い評価サイト", root_path, class: "logo" %>
-        Logged in as <strong><%= current_user.email %></strong>
-        <p><%= link_to '投稿', new_post_path %></p>
-        <p><%= link_to 'プロフィール', current_user %></p>
-        <p><%= link_to "投稿一覧", posts_path %></p>
-        <p><%= link_to "ログアウト", sign_out_path %></p>
-      <% else %>
-        <%= link_to "お笑い評価サイト", root_path, class: "logo" %>
-        <p><%= link_to "サインイン", new_user_registration_path %> |</p>
-        <p><%= link_to "ログイン", new_user_session_path %></p>
-      <% end %>
-    </div>
+<header>
+  <nav class="navbar navbar-expand-md  navbar-light">
+  <p class="navbar-brand"><%= link_to "お笑い評価サイト", root_path, class: "logo" %></p>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		 <div id="menu" class="collapse navbar-collapse">
+		  <ul class="navbar-nav">
+		    <% if user_signed_in? %>
+      		<li class="nav-item">
+            <p class="nav-link">ログイン中<strong><%= current_user.email %></strong></p>
+          </li>
+          <li class="nav-item">
+            <p class="nav-link"><%= link_to '投稿', new_post_path, class: "Editlink" %></p>
+          </li>
+          <li class="nav-item">
+            <p class="nav-link"><%= link_to 'プロフィール', current_user %></p>
+          </li>
+          <li class="nav-item">
+            <p class="nav-link"><%= link_to "投稿一覧", posts_path %></p>
+          </li>
+          <li class="nav-item">
+            <p class="nav-link"><%= link_to "ログアウト", sign_out_path %></p>
+          </li>
+        <% else %>
+          <li class="nav-item nav-link">
+            <p><%= link_to "新規登録", new_user_registration_path %></p>
+          </li>
+          <li class="nav-item">
+            <p class="nav-link"><%= link_to "ログイン", new_user_session_path %></p>
+          </li>
+        <% end %>
+      </ul>
+		</div>
+	</nav>
 </header>

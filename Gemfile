@@ -18,7 +18,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
-gem 'bootstrap-sass', '3.4.1'
+gem 'bootstrap', '4.0.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -68,3 +68,6 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'annotate'
 gem 'rails-i18n'
+gem 'mini_racer'
+
+gem 'pg', group: :production

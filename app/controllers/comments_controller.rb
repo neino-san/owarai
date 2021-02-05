@@ -1,25 +1,26 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.new(comment_params)
-    if comment.save
-        flash[:notice] = 'コメントを投稿しました!'
-        redirect_to comment.post
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save
+      redirect_to request.referer
     else
-        redirect_back fallback_location: root_path, flash: {
-          error_messages: comment.errors.full_messages
-        }
+      @comments = @post.comments
+      redirect_to new_post_path
     end
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    comment.delete
-    redirect_to comment.post, flash: { notice: 'コメントが削除されました' }
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to request.referer
   end
-  
+
   private
 
   def comment_params
-    params.require(:comment).permit(:post_id, :name, :comment)
+    params.require(:comment).permit(:comment)
   end
 end

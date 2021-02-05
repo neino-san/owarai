@@ -1,12 +1,9 @@
 <div class="d-flex align-items-center">
     <h1>投稿一覧</h1>
     <div class="ml-auto posts_button">
-        <a class="btn btn-outline-info" href="/posts/new" role="button">投稿</a>
+        <a class="btn btn-info" href="/posts/new" role="button">投稿</a>
     </div>
 </div>
-<% if flash[:notice] %>
-    <div class="alert alert-primary"><%= flash[:notice] %></div>
-<% end %>
 <table class="table table-bordered border-primary table-hover table-sm posts_table">
   <thead class="thead-dark">
     <tr>
@@ -16,24 +13,22 @@
       <th scope="col">投稿日</th>
       <th scope="col">更新日時</th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
       <% @posts.each do |post| %>
         <tr>
-            <td><%= post.content %></td>
-            <td><%= post.kind %></td>
-            <td class="post_icon"><%= post.user.name %></br>
-            <% if post.user.image? %>
-            <%= image_tag post.user.image.url %>
-            <% else %>
-            <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
-            <% end %></td>
-            <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-            <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
-            <td><%= link_to '詳細', post, id: "detail-" + post.id.to_s, class: 'btn btn-outline-info' %></td>
-            <td><%= link_to "削除" , post, class: 'btn btn-outline-info', method: :delete %></td>
+          <td><%= post.content %></td>
+          <td><%= post.kind %></td>
+          <td class="post_icon"><h4><%= post.user.name %></h4></br>
+          <% if post.user.image? %>
+            <img src=<%= post.user.image %>  width="80" hight="80" >
+          <% else %>
+            <img src="/assets/default.png" width="80" hight="80">
+          <% end %></td>
+          <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+          <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
+          <td><%= link_to '詳細', post, id: "detail-" + post.id.to_s, class: 'btn btn-info' %></td>
         </tr>
       <% end %>
   </tbody>

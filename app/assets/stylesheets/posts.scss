@@ -1,8 +1,35 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.post_icon {
-  width: 180px;
-  height: 180px;
-  border-radius: 100px;
+.post-show {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+    margin: 5px 5px 90px 5px;
+    background-color: #fff;
+}
+
+.post-user {
+    display: inline-block;
+    margin: 15px;
+    img {
+        display: inline-block;
+        margin-right: 15px;
+        border-radius: 50%;
+        border: 1px solid black;
+    }
+    h3 {
+        display: inline-block;
+        color: black;
+    }
+}
+
+.post-content {
+    margin: 15px;
+}
+tbody {
+    img{
+      border-radius: 50%;
+      border: 1px solid black;
+    }
 }

@@ -1,17 +1,47 @@
-<h1>ユーザー名</h1>
-    <%= link_to(@user.name, user_path(@user))%>
-<div class="back-color"><%= @post.content %></div>
-<% if @post.image? %>
-<%= image_tag @post.image.url %>
-<% else %>
- <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
-<% end %>
-  <div class="p-comment_listTitle">コメント</div>
-  <%= render @post.comments %>
-    <%= render partial: 'comments/form', locals: { comment: @comment } %>
-<% if flash[:notice] %>
-    <div class="alert alert-primary"><%= flash[:notice] %></div>
-<% end %>
-    <% if current_user == @user %>
-    <%= link_to '編集', edit_post_path(@post), class: "btn btn-outline-info" %>
+<div class="post-show">
+    <div class="post-user">
+        <% if @user.image? %>
+            <img src=<%= @user.image %> width="90" hight="90">
+        <% else %>
+            <img src="/assets/default.png" width="90" hight="90">
+        <% end %>
+        <h3><%= link_to(@user.name, user_path(@user))%></h3>
+    </div>
+    <div class="post-content">
+        <h3>タイトル：<%= @post.title %></h3><br>
+        <p>ネタの種類：<%= @post.kind %></p><br>
+        <p><%= @post.content %></p><br>
+        <img src=<%= @post.image  %> width="90" hight="90"><br>
+        <% if current_user == @user %>
+      <%= link_to '編集', edit_post_path(@post), class: "btn btn-info" %>
+      <%= link_to "削除" , @post, class: 'btn btn-danger', method: :delete %>
     <% end %>
+    </div>
+</div>
+<div class="comment-wrapper border-top　mb-10">
+  <p class="mt-5">コメント一覧</p>
+  <table class="table table-bordered border-primary table-hover table-sm posts_table">
+  <thead class="thead-dark">
+    <tr>
+      <th>コメント投稿者</th>
+      <th>コメント内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.name if comment.user %><br>
+        <td><%= comment.comment %><br><%= link_to "削除", post_comment_path(@post, comment), method: :delete, class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+  <p class="mt-5">コメント投稿</p>
+　<div class="comment-form">
+    <%= form_for [@post, @comment] do |f| %>
+      <%= f.text_area :comment, class: "form-control", rows: 5 %>
+      <%= f.submit "投稿", class: "btn btn-success float-right mt-1" do %>
+    <% end %>
+  <% end %>
+  </div>
+</div>

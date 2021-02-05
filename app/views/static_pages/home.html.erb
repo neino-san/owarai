@@ -5,24 +5,26 @@
       <div class="row">
           <div class="col-sm-12">
              <h1>ようこそ<%= current_user.name %>さん!</h1>
-             <h2><%= link_to 'オススメのネタを投稿する', new_post_path %></h2>
-             <h2><%= link_to 'みんなのオススメのネタを見る', posts_path %></h2>
+             <h2><%= link_to 'オススメのネタを投稿する', new_post_path, class: "btn btn-lg btn-primary" %></h2>
+             <h2><%= link_to 'みんなのオススメのネタを見る', posts_path, class: "btn btn-lg btn-primary" %></h2>
           </div>
       </div>
     <% else %>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           <div class="text">
             <p>お笑い芸人の漫才やコントが知りたい...<br>
             面白かったネタをみんなに教えたい...<br>
             そんなあなたにオススメのサイトです。</p>
           </div>
         </div>
-      <div class="col-sm-6">
-        <%= link_to "新規アカウント作成", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path %>
-        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-lg btn-primary" %>
+      <div class="col-sm-5">
+        <div class="text">
+          <%= link_to "新規アカウント作成", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary" %></br>
+          <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path %></br>
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-lg btn-primary" %>
+        </div>
       </div>
     </div>
      <% end %>
