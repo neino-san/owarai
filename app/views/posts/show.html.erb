@@ -31,7 +31,10 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.user.name if comment.user %><br>
-        <td><%= comment.comment %><br><%= link_to "削除", post_comment_path(@post, comment), method: :delete, class: "btn btn-info" %></td>
+        <td><%= comment.comment %><br>
+        <% if comment.user == current_user %>
+        <%= link_to "削除", post_comment_path(@post, comment), method: :delete, class: "btn btn-info" %>
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>
