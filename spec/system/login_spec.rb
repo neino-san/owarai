@@ -14,11 +14,10 @@ RSpec.describe "before_and_after_login", type: :system do
                 find(".actions").click
             end
 
-            it "新規登録、ログイン、About、お問い合わせになっていること" do
-                expect(page).to have_link('新規登録')
+            it "新規登録、ログイン、ゲストログインになっていること" do
+                expect(page).to have_link('新規アカウント作成')
                 expect(page).to have_link('ログイン')
-                expect(page).to have_link('About')
-                expect(page).to have_link('お問い合わせ')
+                expect(page).to have_link('ゲストログイン（閲覧用）')
             end
         end
 
@@ -31,8 +30,11 @@ RSpec.describe "before_and_after_login", type: :system do
                 find(".actions").click
             end
 
-            it "ユーザー名、About、お問い合わせになっていること" do
-                expect(page).to have_content("ログイン中: #{user_a.name}")
+            it "ユーザー名、投稿、プロフィール、投稿一覧、ログアウトになっていること" do
+                expect(page).to have_content("ログイン中: #{user_a.email}")
+                expect(page).to have_link('投稿')
+                expect(page).to have_link('プロフィール')
+                expect(page).to have_link('投稿一覧')
                 expect(page).to have_link('ログアウト')
             end
         end

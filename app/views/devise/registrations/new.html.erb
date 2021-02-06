@@ -1,6 +1,5 @@
 <section class="top-view index">
-   <div class="row registrations_row" style="width: 100%;">
-      <h2>アカウント作成</h2>
+      <h2>アカウント作成</h2>　<br>
       <div class="form-group">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -31,7 +30,9 @@
         <div class="actions">
           <%= f.submit "アカウント作成" %>
         </div>
-      <% end %>
+      <% end %><br>
+      
+      <p>すでにアカウントをお持ちの方はこちら</p>
+       <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
       </div>
-    </div>
 </section>

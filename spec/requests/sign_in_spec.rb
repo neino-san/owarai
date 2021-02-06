@@ -38,11 +38,6 @@ RSpec.describe "UserAuthentications", type: :request do
           post user_registration_path, params: { user: invalid_user_params }
         end.to_not change(User, :count)
       end
-
-      it 'エラーが表示されること' do
-        post user_registration_path, params: { user: invalid_user_params }
-        expect(response.body).to include 'prohibited this user from being saved'
-      end
     end
     
   describe 'GET #edit' do

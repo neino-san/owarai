@@ -13,18 +13,12 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', id: 'email' %>
         </div>
 
-        <div class="row send my-4">
-          <p>I'll send <br>you an email...</p>
-          <%= embedded_svg('send.svg', class: 'send-logo')%>
-        </div>
-
         <div class="actions mt-3">
           <%= f.submit "メールを送信",class: 'btn btn-primary p-2' %>
         </div>
       <% end %>
 
       <%= link_to root_path, data_toggle: 'tooltip', data_placement: 'topdo', title: 'TOP'  do %>
-          <%= embedded_svg('timeline.svg', class: "top")%>
       <% end %>
     </div>
   </div>

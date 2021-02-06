@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
         expect(user_a).to be_valid
         end
 
-        it "名前がなければ無効" do
+        it "名前がなければ無効な状態であること" do
             user = build(:user, name: nil)
             user.valid?
             expect(user.errors[:name]).to include('を入力してください')
@@ -18,17 +18,11 @@ RSpec.describe User, type: :model do
             user.valid?
             expect(user.errors[:name]).to include('は35文字以内で入力してください')
         end
-        
-        it "メールがなければ無効" do
-            user = build(:user, email: nil)
-            user.valid?
-            expect(user.errors[:email]).to include('が入力されていません。')
-        end
 
-        it "パスワードがなければ無効" do
-            user = build(:user, password: nil)
+        it "ユーザープロフィールが200文字以内であること" do
+            user = build(:user, profile: "a" * 201)
             user.valid?
-            expect(user.errors[:password]).to include('が入力されていません。')
+            expect(user.errors[:profile]).to include('は200文字以内で入力してください')
         end
     end
 end

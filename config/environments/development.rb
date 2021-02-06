@@ -61,19 +61,17 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.hosts.clear
   
-  #パスワードリセット関連設定
-config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-#↑を設定したらサーバー再起動
-#gmailを使ったメール送信機能
-config.action_mailer.raise_delivery_errors = true
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  :enable_starttls_auto => true,
-  :address => "smtp.gmail.com",
-  :port => 587,
-  :domain => 'smtp.gmail.com',
-  :user_name => "misesugreenapple@gmail.com",
-  :password => "ypojpslsdoxxjeck",
-  :authentication => 'login'
+  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
+  # mail setting
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "misesugreenapple@gmail.com",
+    :password => "Spiderman1596",
+    :authentication => :plain,
+    :enable_starttls_auto => true
 }
 end
