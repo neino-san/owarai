@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_target_post, only: %i[show edit update destroy]
     
   def index
-    @posts = Post.page(params[:page])
+    @posts = Post.includes(:user).page(params[:page])
   end
   
   def new
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
     @comment = Comment.new
-    @comments = @post.comments
+    @comments = @post.comments.includes(post: :comments)
   end
   
   def edit

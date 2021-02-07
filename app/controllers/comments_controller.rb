@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       redirect_to request.referer
     else
       @comments = @post.comments
-      redirect_to new_post_path
+      redirect_to request.referer
     end
   end
 
