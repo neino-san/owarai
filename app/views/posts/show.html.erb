@@ -11,7 +11,9 @@
         <h3>タイトル：<%= @post.title %></h3><br>
         <p>ネタの種類：<%= @post.kind %></p><br>
         <p><%= @post.content %></p><br>
-        <img src=<%= @post.image  %> width="90" hight="90"><br>
+        <% if @post.image? %>
+          <img src=<%= @post.image  %> width="90" hight="90"><br>
+        <% end %>
         <% if current_user == @user %>
       <%= link_to '編集', edit_post_path(@post), class: "btn btn-info" %>
       <%= link_to "削除" , @post, class: 'btn btn-danger', method: :delete %>
