@@ -3,7 +3,7 @@
     <% if @user.image? %>
       <img src=<%= @user.image %> class = "icon_image" width="180" hight="180">
     <% else %>
-      <img src="/assets/default.png" class="icon" >
+       <%= image_tag asset_path('default.png') %>
     <% end %>
     <h1><%= @user.name %></h1>
     <% if @user.profile? %>
@@ -56,7 +56,7 @@
             <% if post.user.image? %>
               <img src=<%= post.user.image %>  width="80" hight="80" >
             <% else %>
-              <img src="/assets/default.png"  width="80" hight="80" class="icon"
+               <%= image_tag asset_path('default.png'), :size =>'80x80' %>
             <% end %></td>
             <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
             <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M') %></td>

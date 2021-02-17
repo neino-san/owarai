@@ -3,7 +3,7 @@
         <% if @user.image? %>
             <img src=<%= @user.image %> width="90" hight="90">
         <% else %>
-            <img src="/assets/default.png" width="90" hight="90">
+            <%= image_tag asset_path('default.png'), :size =>'90x90' %>
         <% end %>
         <h3><%= link_to(@user.name, user_path(@user))%></h3>
     </div>

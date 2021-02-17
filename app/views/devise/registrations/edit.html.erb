@@ -26,7 +26,7 @@
             <% if @user.image? %>
               <img src=<%= post.user.image %>  width="80" hight="80" >
             <% else %>
-              <img src="/assets/default.png" width="80" hight="80">
+              <%= image_tag asset_path('default.png'), :size =>'80x80' %>
             <% end %>
             <%= f.label :image, "プロフィール画像" %><br/>
             <%= f.file_field :image, class: "form-control" %>      　
