@@ -1,24 +1,36 @@
-# README
+<h2>アプリケーション概要</h2>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p>オススメのお笑いのネタを投稿して共有できるSNSサービス。</p>
 
-Things you may want to cover:
+<p>URL: 18.223.73.24</p>
+<h2>動機</h2>
 
-* Ruby version
+<p>昔からお笑いが好きだが、たくさんの芸人さんやネタがあって面白いネタを探すことが大変だった。</p><br>
+<p>そこでお笑いに関してのみ投稿するSNSがあれば、便利に面白いネタを探せると思い作成しました。</p>
 
-* System dependencies
+<h2>アプリケーション機能</h2>
+<ul>
+  <li>基本的なCRUD処理</li>
+  <li>ログイン機能(devise)</li>
+  <li>基本的な投稿機能</li>
+  <li>フォロー機能</li>
+  <li>ソート(kaminari)</li>
+  <li>ユーザー画像登録</li>
+  <li>コメント機能</li>
+  <li>パスワード変更メール</li>
+</ul>
 
-* Configuration
+<h2>実装予定</h2>
+<ul>
+  <li>検索機能</li>
+  <li>お気に入り機能(いいね機能)</li>
+  <li>5段階評価機能</li>
+</ul>
+<h2>環境</h2>
+<p>フレームワーク：Ruby on Rails 6.0.3.5</p>
 
-* Database creation
+<p>データベース：MySQL Ver 8.0.23</p>
 
-* Database initialization
+<p>インフラ：EC2-デプロイ</p>
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<p>バーション管理：Git、GitHub</p>
