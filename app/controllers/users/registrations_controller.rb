@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-
-  #before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -13,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super do
-      resource.update(confirmed_at: Time .now.utc) 
+      resource.update(confirmed_at: Time.now.utc)
     end
   end
 
@@ -44,9 +43,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  #def configure_sign_up_params
-    #devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
-  #end
+  # def configure_sign_up_params
+  # devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -62,37 +61,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  
+
   def show
     @user = User.find(params[:id])
   end
-  
+
   def following
-    @title = "フォロー"
+    @title = 'フォロー'
     @user  = User.find(params[:id])
     @users = @user.following
   end
- 
+
   def followers
-    @title = "フォロワー"
+    @title = 'フォロワー'
     @user  = User.find(params[:id])
     @users = @user.followers
   end
-  
+
   def user_params
     params.require(:user).permit(:name, :email, :image, :id)
   end
-  
+
   private
 
   def set_user
     @user = User.find([:id])
   end
-  
+
   protected
-  
+
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
-
 end
