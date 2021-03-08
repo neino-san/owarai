@@ -24,40 +24,19 @@
   <li>パスワード変更メール</li>
 </ul>
 
-<h2>実装予定</h2>
+<h2>使用技術</h2>
 <ul>
-  <li>検索機能</li>
-  <li>お気に入り機能(いいね機能)</li>
-  <li>5段階評価機能</li>
-</ul>
-<h2>環境</h2>
-<h3>フレームワーク</h3>
-<p>Ruby on Rails 6.0.3.5</p>
-
-<h3>データベース</h3>
-<p>MySQL Ver 8.0.23</p>
-
-<h3>インフラ</h3>
-<p>EC2<br>VPC</p>
-
-<h3>バーション管理</h3>
-
-<p>Git<br>GitHub</p>
-<h3>使用言語</h3>
-<ul>
+  <li>MySQL</li>
+  <li>nginx,puma</li>
+  <li>JavaScript・jQuery</li>
   <li>Ruby 2.6.3</li>
-  <li>HTML</li>
-  <li>CSS</li>
-  <li>SaSS</li>
-  <li>JavaScript(jQuery)</li>
-</ul>
-<h3>主な使用ライブラリ</h3>
-<ul>
-  <li>bootstrap</li>
-  <li>Devise</li>
-  <li>carrierwave</li>
-  <li>kaminari</li>
-  <li>Spring</li>
+  <li>Ruby on Rails 6.0.3.5</li>
+  <li>RSpec(テストフレームワーク)</li>
+  <li>docker,docker-compose(開発環境)</li>
+  <li>AWS/本番環境 (EC2,VPC)</li>
+  <li>Mac OS(10.15.7)</li>
+  <li>Amazon Linux</li>
+  <li>Git,GitHub(バージョン管理)</li>
 </ul>
 
 <h2>サイトマップ</h2>
@@ -65,3 +44,9 @@
 
 <h2>ER図</h2>
 <img width="614" alt="スクリーンショット 2021-02-19 3 38 45" src="https://user-images.githubusercontent.com/76152070/108405231-2e0f9000-7264-11eb-887a-3f61e0fa775c.png">
+<h2>実装予定</h2>
+<ul>
+  <li>検索機能</li>
+  <li>お気に入り機能(いいね機能)</li>
+  <li>5段階評価機能</li>
+</ul>
