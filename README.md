@@ -38,7 +38,11 @@
   <li>Amazon Linux</li>
   <li>Git,GitHub(バージョン管理)</li>
 </ul>
+<h2>工夫した点</h2>
+<p>N+１問題の解消</p>
 
+<p>フォロー機能に非同期通信(Ajax)の導入
+  
 <h2>サイトマップ</h2>
 <img width="998" alt="スクリーンショット 2021-02-18 0 42 09" src="https://user-images.githubusercontent.com/76152070/108398019-ec7ae700-725b-11eb-9a6f-788e1ba7cb12.png">
 
