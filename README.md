@@ -47,7 +47,7 @@
 <p>Git</p>
 <p>GitHub</p>
 <h2>サイトマップ</h2>
-https://github.com/neino-san/owarai/issues/1#issue-810507547
+<img width="998" alt="スクリーンショット 2021-02-18 0 42 09" src="https://user-images.githubusercontent.com/76152070/108398019-ec7ae700-725b-11eb-9a6f-788e1ba7cb12.png">
 
 <h2>ER図</h2>
-https://github.com/neino-san/owarai/issues/2#issue-811351536
+<img width="998" alt="スクリーンショット 2021-02-18 0 42 09" src="https://user-images.githubusercontent.com/76152070/108398019-ec7ae700-725b-11eb-9a6f-788e1ba7cb12.png">
