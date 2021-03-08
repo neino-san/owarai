@@ -12,7 +12,11 @@
 <ul>
   <li>基本的なCRUD処理</li>
   <li>ログイン機能(devise)</li>
-  <li>基本的な投稿機能</li>
+  <li>記事投稿機能</li>
+  <li>記事一覧機能</li>
+  <li>画像投稿機能</li>
+  <li>フォロー・フォロワー一覧機能</li>
+  <li>ゲストユーザー機能機能</li>
   <li>フォロー機能</li>
   <li>ソート(kaminari)</li>
   <li>ユーザー画像登録</li>
@@ -36,9 +40,14 @@
 
 <p>インフラ</p>
 
-<p>EC2-デプロイ</p>
+<p>EC2</p>
 
 <p>バーション管理</p>
 
 <p>Git</p>
 <p>GitHub</p>
+<h2>サイトマップ</h2>
+https://github.com/neino-san/owarai/issues/1#issue-810507547
+
+<h2>ER図</h2>
+https://github.com/neino-san/owarai/issues/2#issue-811351536
