@@ -50,4 +50,4 @@
 <img width="998" alt="スクリーンショット 2021-02-18 0 42 09" src="https://user-images.githubusercontent.com/76152070/108398019-ec7ae700-725b-11eb-9a6f-788e1ba7cb12.png">
 
 <h2>ER図</h2>
-<img width="998" alt="スクリーンショット 2021-02-18 0 42 09" src="https://user-images.githubusercontent.com/76152070/108398019-ec7ae700-725b-11eb-9a6f-788e1ba7cb12.png">
+<img width="614" alt="スクリーンショット 2021-02-19 3 38 45" src="https://user-images.githubusercontent.com/76152070/108405231-2e0f9000-7264-11eb-887a-3f61e0fa775c.png">
