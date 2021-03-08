@@ -44,8 +44,7 @@
 
 <p>バーション管理</p>
 
-<p>Git</p><br>
-<p>GitHub</p>
+<p>Git<br>GitHub</p>
 <h2>サイトマップ</h2>
 <img width="998" alt="スクリーンショット 2021-02-18 0 42 09" src="https://user-images.githubusercontent.com/76152070/108398019-ec7ae700-725b-11eb-9a6f-788e1ba7cb12.png">
 
