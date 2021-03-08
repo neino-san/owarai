@@ -42,6 +42,8 @@
 <p>N+１問題の解消</p>
 
 <p>フォロー機能に非同期通信(Ajax)の導入
+<img width="1368" alt="スクリーンショット 2021-03-08 23 16 12" src="https://user-images.githubusercontent.com/76152070/110333963-9385be00-8065-11eb-8e08-2afd320f396e.png">
+<img width="1348" alt="スクリーンショット 2021-03-08 23 22 18" src="https://user-images.githubusercontent.com/76152070/110333989-9da7bc80-8065-11eb-99df-576cfe107828.png">
   
 <h2>サイトマップ</h2>
 <img width="998" alt="スクリーンショット 2021-02-18 0 42 09" src="https://user-images.githubusercontent.com/76152070/108398019-ec7ae700-725b-11eb-9a6f-788e1ba7cb12.png">
