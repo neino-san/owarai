@@ -43,6 +43,28 @@
 <h3>バーション管理</h3>
 
 <p>Git<br>GitHub</p>
+<h3>使用言語</h3>
+<ul>
+  <li>Ruby 2.6.3</li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>SaSS</li>
+  <li>JavaScript</li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<h3>主な使用ライブラリ</h3>
+<ul>
+  <li>bootstrap</li>
+  <li>Devise</li>
+  <li>carrierwave</li>
+  <li>kaminari</li>
+  <li>Spring</li>
+</ul>
+
 <h2>サイトマップ</h2>
 <img width="998" alt="スクリーンショット 2021-02-18 0 42 09" src="https://user-images.githubusercontent.com/76152070/108398019-ec7ae700-725b-11eb-9a6f-788e1ba7cb12.png">
 
