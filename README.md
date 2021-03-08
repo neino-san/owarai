@@ -39,8 +39,8 @@
   <li>Git,GitHub(バージョン管理)</li>
 </ul>
 <h2>工夫した点</h2>
-<p>N+１問題の解消</p>
-
+<p>記事一覧機能でN+１問題の解消</p>
+<img width="1396" alt="スクリーンショット 2021-03-08 23 27 35" src="https://user-images.githubusercontent.com/76152070/110334228-e2335800-8065-11eb-9cb3-e636fe8d56bd.png">
 <p>フォロー機能に非同期通信(Ajax)の導入
 <img width="1368" alt="スクリーンショット 2021-03-08 23 16 12" src="https://user-images.githubusercontent.com/76152070/110333963-9385be00-8065-11eb-8e08-2afd320f396e.png">
 <img width="1348" alt="スクリーンショット 2021-03-08 23 22 18" src="https://user-images.githubusercontent.com/76152070/110333989-9da7bc80-8065-11eb-99df-576cfe107828.png">
