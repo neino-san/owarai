@@ -49,7 +49,7 @@
   <li>HTML</li>
   <li>CSS</li>
   <li>SaSS</li>
-  <li>JavaScript</li>
+  <li>JavaScript(jQuery)</li>
 </ul>
 <h3>主な使用ライブラリ</h3>
 <ul>
