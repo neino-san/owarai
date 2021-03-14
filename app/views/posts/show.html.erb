@@ -42,11 +42,5 @@
   </tbody>
   </table>
   <p class="mt-5">コメント投稿</p>
-　<div class="comment-form">
-    <%= form_for [@post, @comment] do |f| %>
-      <%= f.text_area :comment, class: "form-control", rows: 5 %>
-      <%= f.submit "投稿", class: "btn btn-success float-right mt-1" do %>
-    <% end %>
-  <% end %>
-  </div>
+  <%= render 'comments/comment-form' %>
 </div>
