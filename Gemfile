@@ -36,6 +36,11 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -72,3 +77,4 @@ gem 'mini_racer'
 gem 'rails-i18n'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+gem 'unicorn'
