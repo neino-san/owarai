@@ -2,7 +2,7 @@
 
 <p>オススメのお笑いのネタを投稿して共有できるSNSサービス。</p>
 
-<p>URL:owaraievaluation.com/</p>
+<p>URL:http.//owaraievaluation.com/</p>
 <h2>動機</h2>
 
 <p>昔からお笑いが好きだが、たくさんの芸人さんやネタがあって面白いネタを探すことが大変だった。</p><br>
