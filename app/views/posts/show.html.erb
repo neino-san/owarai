@@ -15,38 +15,9 @@
           <img src=<%= @post.image  %> width="90" hight="90"><br>
         <% end %>
         <% if current_user == @user %>
-      <%= link_to '編集', edit_post_path(@post), class: "btn btn-info" %>
+      <%= link_to '編集', edit_post_path(@post), class: "btn btn-primary" %>
       <%= link_to "削除" , @post, class: 'btn btn-danger', method: :delete %>
     <% end %>
     </div>
 </div>
-<div class="comment-wrapper border-top　mb-10">
-  <p class="mt-5">コメント一覧</p>
-  <table class="table table-bordered border-primary table-hover table-sm posts_table">
-  <thead class="thead-dark">
-    <tr>
-      <th>コメント投稿者</th>
-      <th>コメント内容</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.user.name if comment.user %><br>
-        <td><%= comment.comment %><br>
-        <% if comment.user == current_user %>
-        <%= link_to "削除", post_comment_path(@post, comment), method: :delete, class: "btn btn-info" %>
-        <% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  </table>
-  <p class="mt-5">コメント投稿</p>
-　<div class="comment-form">
-    <%= form_for [@post, @comment] do |f| %>
-      <%= f.text_area :comment, class: "form-control", rows: 5 %>
-      <%= f.submit "投稿", class: "btn btn-success float-right mt-1" do %>
-    <% end %>
-  <% end %>
-  </div>
-</div>
+<%= render 'comments/comment-index' %>
