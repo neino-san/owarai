@@ -1,20 +1,21 @@
+<h2>マイプロフィール</h2>
 <div class="user-show">
-  <div class="user-user">
+  <div class="user-info">
     <% if @user.image? %>
-      <img src=<%= @user.image %> class = "icon_image" width="180" hight="180">
+      <img src=<%= @user.image %> width="180" hight="180">
     <% else %>
        <%= image_tag asset_path('default.png') %>
     <% end %>
-    <h1><%= @user.name %></h1>
+    <h1><%= @user.name %></h1><br>
     <% if @user.profile? %>
-    　　<div class="back-color"><%= @user.profile %></div>
+    　　<p><%= @user.profile %></p>
     <% else %>
-    　　<div class="back-color">プロフィールはありません</div>
+    　　<p>プロフィールはありません</p>
     <% end %>
     <section class="stats">
       <%= render 'devise/shared/stats' %>
     </section>
-    <% unless @user == current_user %>
+    <% if @user != current_user %>
       <div id="follow_form">
         <% if current_user.following?(@user) %>
           <%= render 'devise/shared/unfollow' %>
@@ -25,10 +26,9 @@
     <% end %>
     <% if current_user == @user %>
     <h3>メールアドレス</h3>
-    <div class="back-color"><%= @user.email %></div>
+    <%= @user.email %><br>
     <%= link_to "編集", edit_user_registration_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 </div>
-<div class="d-flex align-items-center">
 <%= render 'posts/post_user_index' %>

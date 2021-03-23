@@ -1,4 +1,5 @@
-<!-- ユーザー事の記事一覧 -->
+<!-- ユーザーごとの記事一覧 -->
+<div class="d-flex align-items-center">
 <h1>投稿一覧</h1>
     <div class="ml-auto posts_button">
         <a class="btn btn-primary" href="/posts/new" role="button">投稿</a>
@@ -20,7 +21,7 @@
         <tr>
             <td><%= post.content %></td>
             <td><%= post.kind %></td>
-            <td class="post_icon"><h4><%= post.user.name %></h4></br>
+            <td class="post_icon"><h4><%= post.user.name %></h4><br>
             <% if post.user.image? %>
               <img src=<%= post.user.image %>  width="80" hight="80" >
             <% else %>
