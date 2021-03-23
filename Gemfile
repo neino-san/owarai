@@ -74,7 +74,6 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'mini_racer'
-
 gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'rubocop', require: false

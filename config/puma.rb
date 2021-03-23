@@ -33,5 +33,4 @@ pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
 # process behavior so workers use less memory.
 #
 # preload_app!
-
 stdout_redirect "#{app_root}/log/puma.stdout.log", "#{app_root}/log/puma.stderr.log", true
