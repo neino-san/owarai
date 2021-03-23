@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_02_02_032543) do
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "user_id", null: false
     t.text "comment", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_032543) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "title"
     t.string "kind"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_032543) do
     t.string "image"
   end
 
-  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_032543) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
