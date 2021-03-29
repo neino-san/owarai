@@ -12,6 +12,7 @@
     <% else %>
     　　<p>プロフィールはありません</p>
     <% end %>
+    <!-- フォロー・フォロワー一覧 -->
     <section class="stats">
       <%= render 'devise/shared/stats' %>
     </section>
@@ -25,9 +26,9 @@
       </div>
     <% end %>
     <% if current_user == @user %>
-    <h3>メールアドレス</h3>
-    <%= @user.email %><br>
-    <%= link_to "編集", edit_user_registration_path, class: "btn btn-lg btn-primary" %>
+      <h3>メールアドレス</h3>
+      <%= @user.email %><br>
+      <%= link_to "編集", edit_user_registration_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 </div>

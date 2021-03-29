@@ -1,49 +1,51 @@
-# docker-composeのバージョンを指定します。今回は'3'を使用。
 version: '3'
-
-# 起動するコンテナの定義を行います。このファイルではdb, db-test , webの三つを定義しています。 
 services:
-  db:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: owarai_development
-      MYSQL_USER: user #任意のユーザー
-      MYSQL_PASSWORD: password
-      TZ: Asia/Tokyo
-    volumes:
-      - ./mysql/mysql_data:/var/lib/mysql
-      - ./logs:/var/log/mysql
-      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    ports:
-      - "4306:3306"
+  app:
+    build:
+      context: .
+    command: bundle exec puma -C config/puma.rb
 
-  db-test:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - .:/owarai
+      - public-data:/owarai/public
+      - tmp-data:/owarai/tmp
+      - log-data:/owarai/log
+    networks:
+      - owarai-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: owarai_test
       MYSQL_USER: user
       MYSQL_PASSWORD: password
-      TZ: Asia/Tokyo
+      MYSQL_DATABASE: owarai_development
     volumes:
-      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    tmpfs:
-      - /var/lib/mysql
-      - /var/log/mysql
+      - db-data:/var/lib/mysql
+    networks:
+      - owarai-network
 
   web:
     build:
-      context: .
-      dockerfile: Dockerfile
-    command: /bin/sh -c "rm -f /owarai/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    tty: true
-    stdin_open: true
-    depends_on:
-      - db
-    ports:
-      - "3000:3000"
+      context: ./nginx_docker
     volumes:
-      - .:/owarai
+      - public-data:/owarai/public
+      - tmp-data:/owarai/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    networks:
+      - owarai-network
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
+
+networks:
+  owarai-network:
+    external: true
