@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  # 各アクションが呼び出される前に、set_target_postを実行する
   before_action :set_target_post, only: %i[show edit update destroy]
 
   def index
@@ -45,16 +46,12 @@ class PostsController < ApplicationController
   end
 
   private
-
+  # paramsからname,title,content,image,remove_image,kind,idのみ抽出
   def post_params
     params.require(:post).permit(:name, :title, :content, :image, :remove_image, :kind, :id)
   end
 
   def set_target_post
     @post = Post.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find([:id])
   end
 end
