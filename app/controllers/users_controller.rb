@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    # includesメソッドを用いてn+1問題の解消
     @posts = @user.posts.page(params[:page]).per(10).order('updated_at DESC').includes(:user)
   end
 
