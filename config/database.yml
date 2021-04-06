@@ -9,3 +9,10 @@ default: &default
 development:
   <<: *default
   database: owarai_development
+
+production:
+  <<: *default
+  database: owarai_production
+  username: root
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:hostname] %>
